@@ -6,15 +6,18 @@ from selenium.webdriver.common.keys import Keys
 
 
 try:
-    driver = webdriver.Chrome()
+    options = Options()
+    options.headless = True
+    driver = webdriver.Chrome(options=options)
 
     # Open BKMS
     driver.get("https://in.bookmyshow.com")
     time.sleep(1.25)
 
-    # Select city, Vellore | Selects by class_name (not optimal)
+    # Select city | Selects by class_name (not optimal)
     city_field = driver.find_element(by=By.CLASS_NAME, value="bwc__sc-1iyhybo-6.ilhhay")
-    city_field.send_keys("Vellore")
+    city_name = "Vellore"
+    city_field.send_keys(city_name)
     time.sleep(0.75)
     driver.find_element(by=By.CLASS_NAME, value="bwc__sc-ttnkwg-14.flGQbT").click()
     time.sleep(1)
