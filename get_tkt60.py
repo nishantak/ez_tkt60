@@ -1,6 +1,7 @@
 import time, traceback, random
 
 import undetected_chromedriver as uc
+from seleniumbase import Driver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
@@ -12,7 +13,8 @@ try:
     # options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3")
     # options.add_argument("--disable-extensions")
  
-    driver = uc.Chrome()
+    # driver = uc.Chrome()
+    driver = Driver(uc=True, incognito=True)
 
     driver.delete_all_cookies()
 
@@ -41,7 +43,7 @@ try:
     driver.find_element(By.CLASS_NAME, "bwc__sc-1iyhybo-13.kqrJYR").click()
     time.sleep(random.uniform(0.5, 1))
     driver.find_element(By.XPATH, "//button[contains(., 'Book tickets')]").click()  # Selects dynamically (even better)
-    time.sleep(100)
+    time.sleep(2)
 
 
 except Exception as e:
