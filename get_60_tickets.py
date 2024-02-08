@@ -2,7 +2,10 @@ import time, traceback, random
 
 import undetected_chromedriver as uc
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as ec
 
+# Increase sleep time if slow internet, or learn to implement expected_conditions
 try:
     # options = uc.ChromeOptions()
     # options.headless = True
@@ -34,11 +37,11 @@ try:
     input_field = driver.find_element(By.XPATH, "//*[@id=\"super-container\"]/div[2]/div[1]/div/div[2]/div[1]/div/div[2]/div/div/div/input")
     filmname = "Teri Baaton Mein Aisa Uljha Jiya" 
     input_field.send_keys(filmname)
-    time.sleep(random.uniform(0.5, 1))
+    time.sleep(random.uniform(0.9, 1.3))
     driver.find_element(By.CLASS_NAME, "bwc__sc-1iyhybo-13.kqrJYR").click()
     time.sleep(random.uniform(0.5, 1))
     driver.find_element(By.XPATH, "//button[contains(., 'Book tickets')]").click()  # Selects dynamically (even better)
-    time.sleep(1000)
+    time.sleep(100)
 
 
 except Exception as e:
