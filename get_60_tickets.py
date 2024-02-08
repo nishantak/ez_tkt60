@@ -11,18 +11,19 @@ try:
     options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3")
 
     driver = webdriver.Chrome(options=options)
+    driver.delete_all_cookies()
 
     # Open BKMS
     driver.get("https://in.bookmyshow.com")
-    time.sleep(1.25)
+    time.sleep(random.uniform(1, 2))
 
     # Select city | Selects by class_name (not optimal)
     city_field = driver.find_element(by=By.CLASS_NAME, value="bwc__sc-1iyhybo-6.ilhhay")
     city_name = "Vellore"
     city_field.send_keys(city_name)
-    time.sleep(0.75)
+    time.sleep(random.uniform(0.5, 1))
     driver.find_element(by=By.CLASS_NAME, value="bwc__sc-ttnkwg-14.flGQbT").click()
-    time.sleep(1)
+    time.sleep(random.uniform(0.75, 1.25))
 
     # Find search | Selects by XML path (optimal)
     search_box = driver.find_element(by=By.XPATH, value="//*[@id=\"4\"]")
@@ -38,5 +39,6 @@ except Exception as e:
     #traceback.print_exc()
 
 finally:
+    driver.delete_all_cookies()
     driver.quit()
 
