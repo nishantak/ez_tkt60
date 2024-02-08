@@ -12,14 +12,14 @@ try:
     driver.get("https://in.bookmyshow.com")
     time.sleep(1.25)
 
-    # Select city, Vellore
+    # Select city, Vellore | Selects by class_name (not optimal)
     city_field = driver.find_element(by=By.CLASS_NAME, value="bwc__sc-1iyhybo-6.ilhhay")
     city_field.send_keys("Vellore")
     time.sleep(0.75)
     driver.find_element(by=By.CLASS_NAME, value="bwc__sc-ttnkwg-14.flGQbT").click()
     time.sleep(1)
 
-    # Find search
+    # Find search | Selects by XML path (optimal)
     search_box = driver.find_element(by=By.XPATH, value="//*[@id=\"4\"]")
     search_box.click()
     input_field = driver.find_element(by=By.XPATH, value="//*[@id=\"super-container\"]/div[2]/div[1]/div/div[2]/div[1]/div/div[2]/div/div/div/input")
