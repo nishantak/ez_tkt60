@@ -1,19 +1,11 @@
 import time, traceback, random
 
-import undetected_chromedriver as uc
 from seleniumbase import Driver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 
 # Increase sleep time if slow internet, or learn to implement expected_conditions
 try:
-    # options = uc.ChromeOptions()
-    # options.headless = True
-    # options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3")
-    # options.add_argument("--disable-extensions")
- 
-    # driver = uc.Chrome()
+
     driver = Driver(uc=True, incognito=True)
 
     driver.delete_all_cookies()
