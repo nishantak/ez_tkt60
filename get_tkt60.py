@@ -17,13 +17,14 @@ try:
 
     driver.delete_all_cookies()
 
-    # Open BKMS
-    driver.get("https://in.bookmyshow.com")
+    # Open site
+    site = "https://in.bookmyshow.com"
+    driver.get(site)
     time.sleep(random.uniform(1, 2))
 
     # Select city | Selects by class_name (not optimal)
-    city_field = driver.find_element(By.CLASS_NAME, "bwc__sc-1iyhybo-6.ilhhay")
     city_name = "Vellore"
+    city_field = driver.find_element(By.CLASS_NAME, "bwc__sc-1iyhybo-6.ilhhay")
     city_field.send_keys(city_name)
     time.sleep(random.uniform(0.5, 1))
     driver.find_element(By.CLASS_NAME, "bwc__sc-ttnkwg-14.flGQbT").click()
@@ -35,8 +36,8 @@ try:
     time.sleep(random.uniform(0.5,0.75))
 
     # Search film
-    input_field = driver.find_element(By.XPATH, "//*[@id=\"super-container\"]/div[2]/div[1]/div/div[2]/div[1]/div/div[2]/div/div/div/input")
     filmname = "Dune: Part Two" 
+    input_field = driver.find_element(By.XPATH, "//*[@id=\"super-container\"]/div[2]/div[1]/div/div[2]/div[1]/div/div[2]/div/div/div/input")
     input_field.send_keys(filmname)
     time.sleep(random.uniform(0.9, 1.3))
     driver.find_element(By.CLASS_NAME, "bwc__sc-1iyhybo-13.kqrJYR").click()
@@ -45,11 +46,16 @@ try:
     time.sleep(random.uniform(0.5, 1))
 
     # Booking specs
-    date = "06"
+    date = "06" 
+    hall = "IOSE" #or PVYS (PVR)
+    hrs = "1200" 
     driver.find_element(By.XPATH, f"//div[contains(text(), {date})]").click()
     time.sleep(random.uniform(0.5, 1))
-    driver.find_element(By.XPATH, "//a[@data-venue-code='IOSE' and @data-showtime-code='1200']").click()
-    
+    driver.find_element(By.XPATH, f"//a[@data-venue-code='{hall}' and @data-showtime-code='{hrs}']").click()
+    time.sleep(random.uniform(2, 3))
+    driver.find_element(By.ID, "pop_10").click()
+    driver.find_element(By.ID, "proceed-Qty").click()
+
     time.sleep(5)
 
 
