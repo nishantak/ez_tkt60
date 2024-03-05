@@ -5,13 +5,7 @@ from selenium.webdriver.common.by import By
 
 # Increase sleep time if slow internet, or learn to implement expected_conditions
 try:
-    # options = Driver.options.ChromeOptions()
-    # options.headless = True
-    # options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3")
-    # options.add_argument("--disable-extensions")
- 
-    # driver = uc.Chrome()
-    driver = Driver(uc=True, incognito=True)
+    driver = Driver(uc=True, incognito=True, headless2=False)
 
     driver.delete_all_cookies()
 
