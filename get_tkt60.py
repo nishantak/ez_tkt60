@@ -2,8 +2,6 @@ import time, traceback, random
 
 from seleniumbase import Driver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as ec
 
 # Increase sleep time if slow internet, or learn to implement expected_conditions
 try:
