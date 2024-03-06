@@ -56,6 +56,7 @@ except Exception as e:
     # traceback.print_exc()
 
 finally:
-    driver.delete_all_cookies()
-    driver.quit()
+    if driver:
+        driver.delete_all_cookies()
+        driver.quit()
 
